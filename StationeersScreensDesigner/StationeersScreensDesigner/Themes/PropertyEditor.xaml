@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sel="clr-namespace:StationeersScreensDesigner.Selectors">
+    <DataTemplate x:Key="TextEditorTemplate">
+        <TextBox Text="{Binding Value, UpdateSourceTrigger=LostFocus}" 
+                 />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SliderEditorTemplate">
+        <Slider Value="{Binding Value}" Minimum="0" Maximum="100" 
+                />
+    </DataTemplate>
+
+    <sel:PropertyEditorSelector x:Key="MyPropertySelector"
+        DefaultTemplate="{StaticResource TextEditorTemplate}"
+        SliderTemplate="{StaticResource SliderEditorTemplate}" />
+</ResourceDictionary>

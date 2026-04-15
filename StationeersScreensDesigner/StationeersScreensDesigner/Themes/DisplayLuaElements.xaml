@@ -1,0 +1,271 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mod="clr-namespace:StationeersScreensDesigner.Models"
+                    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+                    xmlns:beh ="clr-namespace:StationeersScreensDesigner.Behaviours"
+                    xmlns:conv ="clr-namespace:StationeersScreensDesigner.Converters"
+                    >
+    <!--#region Display Elements-->
+    <DataTemplate DataType="{x:Type mod:LuaLabel}">
+        <Grid Background="Transparent">
+            <i:Interaction.Behaviors>
+                <beh:DesignerItemBehavior />
+            </i:Interaction.Behaviors>
+            <TextBlock Text="{Binding Content}" FontSize="{Binding FontSize}" IsHitTestVisible="False"
+                   TextAlignment="{Binding Align}" Width="{Binding Width}" Height="{Binding Height}"
+                       Foreground="{Binding Color}"
+                   />
+        </Grid>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type mod:LuaPanel}">
+        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="{Binding Background}">
+            <i:Interaction.Behaviors>
+                <beh:DesignerItemBehavior />
+            </i:Interaction.Behaviors>
+        </Rectangle>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type mod:LuaProgressBar}">
+        <Grid>
+            <i:Interaction.Behaviors>
+                <beh:DesignerItemBehavior />
+            </i:Interaction.Behaviors>
+            <Border Background="{Binding Background}" Width="{Binding Width}" Height="{Binding Height}" BorderThickness="0">
+                <Border Background="{Binding FillColor}" Margin="3,3" BorderThickness="0" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Border>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type mod:LuaLine}">
+        <Grid Background="Transparent">
+            <i:Interaction.Behaviors>
+                <beh:DesignerItemBehavior />
+            </i:Interaction.Behaviors>
+            <Line X1="{Binding X1}" X2="{Binding X2}"
+                  Y1="{Binding Y1}" Y2="{Binding Y2}"
+                  StrokeThickness="{Binding Thickness}"
+                  Stroke="{Binding Color}"/>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type mod:LuaIcon}">
+        <Grid Background="Transparent" Width="{Binding Width}" Height="{Binding Height}">
+            <i:Interaction.Behaviors>
+                <beh:DesignerItemBehavior />
+            </i:Interaction.Behaviors>
+            <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#A0FFFFFF"/>
+            <Ellipse HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stroke="{Binding Tint}"/>
+        </Grid>
+    </DataTemplate>
+    <!--#endregion-->
+    <!--#region Interactive Elements-->
+    <DataTemplate DataType="{x:Type mod:LuaButton}">
+        <Grid Background="Transparent">
+            <i:Interaction.Behaviors>
+                <beh:DesignerItemBehavior />
+            </i:Interaction.Behaviors>
+
+            <Button Width="{Binding Width}" 
+                Height="{Binding Height}"
+                Background="{Binding Background}"
+                Content="{Binding Text}"
+                Foreground="{Binding TextColor}"
+                FontSize="{Binding FontSize}"
+                IsHitTestVisible="False"
+                BorderThickness="3"
+                    />
+        </Grid>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type mod:LuaRadioButton}">
+        <Grid Background="Transparent" Width="{Binding Width}" Height="{Binding Height}">
+            <i:Interaction.Behaviors>
+                <beh:DesignerItemBehavior />
+            </i:Interaction.Behaviors>
+
+            <Viewbox Stretch="Uniform">
+                <Viewbox.Resources>
+                    <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+                </Viewbox.Resources>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Grid Margin="0,0,8,0">
+                        <Ellipse Width="18" Height="18" Stroke="{Binding TextColor}" StrokeThickness="1.5" Fill="{Binding Background}"/>
+                        <Ellipse x:Name="CheckDot" Width="10" Height="10" Fill="{Binding CheckColor}" 
+                             Visibility="{Binding IsChecked, Converter={StaticResource BoolToVis}}"/>
+                    </Grid>
+                    <TextBlock Text="{Binding Text}" Foreground="{Binding TextColor}" FontSize="{Binding FontSize}"/>
+                </StackPanel>
+            </Viewbox>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type mod:LuaCheckbox}">
+        <Grid Background="Transparent" 
+          Width="{Binding Width}" 
+          Height="{Binding Height}">
+
+            <i:Interaction.Behaviors>
+                <beh:DesignerItemBehavior />
+            </i:Interaction.Behaviors>
+
+            <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
+                <CheckBox IsHitTestVisible="False" 
+                      IsChecked="{Binding IsChecked}"
+                      VerticalAlignment="Center">
+                    <CheckBox.Template>
+                        <ControlTemplate TargetType="CheckBox">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Margin="0,0,8,0">
+                                    <Rectangle Width="18" Height="18" 
+                                           Stroke="{Binding TextColor}" 
+                                           StrokeThickness="1.5"
+                                           Fill="{Binding Background}"
+                                           RadiusX="1" RadiusY="1"/>
+
+                                    <Rectangle x:Name="CheckMark" 
+                                           Width="10" Height="10" 
+                                           Fill="{Binding CheckColor}" 
+                                           Visibility="Collapsed"/>
+                                </Grid>
+
+                                <TextBlock Text="{Binding Text}" 
+                                       Foreground="{Binding TextColor}" 
+                                       FontSize="{Binding FontSize}" 
+                                       VerticalAlignment="Center"
+                                       FontFamily="Consolas"/>
+                            </StackPanel>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </CheckBox.Template>
+                </CheckBox>
+            </Viewbox>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type mod:LuaToggle}">
+        <Grid Background="Transparent" 
+          Width="{Binding Width}" 
+          Height="{Binding Height}">
+
+            <i:Interaction.Behaviors>
+                <beh:DesignerItemBehavior />
+            </i:Interaction.Behaviors>
+
+            <Viewbox Stretch="Uniform">
+                <ToggleButton IsHitTestVisible="False" 
+                          IsChecked="{Binding Value}"
+                          Width="50" Height="24">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Grid>
+                                <Border x:Name="Track"
+                                    Background="{Binding OffColor}"
+                                    CornerRadius="12"
+                                    BorderThickness="1.5"
+                                    BorderBrush="{Binding KnobColor}"/>
+
+                                <Border x:Name="Knob"
+                                    HorizontalAlignment="Left"
+                                    Width="18" Height="18"
+                                    Margin="3"
+                                    Background="{Binding KnobColor}"
+                                    CornerRadius="10">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="4" ShadowDepth="1" Opacity="0.3"/>
+                                    </Border.Effect>
+                                </Border>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="Track" Property="Background" Value="{Binding OnColor}"/>
+                                    <Setter TargetName="Knob" Property="HorizontalAlignment" Value="Right"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
+            </Viewbox>
+        </Grid>
+    </DataTemplate>
+    <!--#endregion-->
+    <!--#region Data Visualisation-->
+    <DataTemplate DataType="{x:Type mod:LuaGauge}">
+        <Grid Width="{Binding Width}" Height="{Binding Height}" Background="Transparent">
+            <i:Interaction.Behaviors>
+                <beh:DesignerItemBehavior />
+            </i:Interaction.Behaviors>
+
+            <Grid.Resources>
+                <conv:ArcConverter x:Key="ArcConv"/>
+            </Grid.Resources>
+
+            <Ellipse Fill="{Binding Background}" 
+                 Stroke="{Binding ArcBorderColor}" 
+                 StrokeThickness="1"
+                 Margin="2"/>
+
+            <Path Stroke="{Binding NormalColor}" StrokeThickness="{Binding ArcThickness}">
+                <Path.Data>
+                    <MultiBinding Converter="{StaticResource ArcConv}">
+                        <Binding Path="MinValue"/>
+                        <Binding Path="MaxValue"/>
+                        <Binding Path="MinValue"/>
+                        <Binding Path="Warn"/>
+                        <Binding Path="Width"/>
+                        <Binding Path="ArcThickness"/>
+                        <Binding Path="Invert"/>
+                    </MultiBinding>
+                </Path.Data>
+            </Path>
+
+            <Path Stroke="{Binding WarnColor}" StrokeThickness="{Binding ArcThickness}">
+                <Path.Data>
+                    <MultiBinding Converter="{StaticResource ArcConv}">
+                        <Binding Path="MinValue"/>
+                        <Binding Path="MaxValue"/>
+                        <Binding Path="Warn"/>
+                        <Binding Path="Danger"/>
+                        <Binding Path="Width"/>
+                        <Binding Path="ArcThickness"/>
+                        <Binding Path="Invert"/>
+                    </MultiBinding>
+                </Path.Data>
+            </Path>
+
+            <Path Stroke="{Binding DangerColor}" StrokeThickness="{Binding ArcThickness}">
+                <Path.Data>
+                    <MultiBinding Converter="{StaticResource ArcConv}">
+                        <Binding Path="MinValue"/>
+                        <Binding Path="MaxValue"/>
+                        <Binding Path="Danger"/>
+                        <Binding Path="MaxValue"/>
+                        <Binding Path="Width"/>
+                        <Binding Path="ArcThickness"/>
+                        <Binding Path="Invert"/>
+                    </MultiBinding>
+                </Path.Data>
+            </Path>
+
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Rectangle Width="4" Height="40" Fill="{Binding NeedleColor}" 
+                       RadiusX="2" RadiusY="2"
+                       RenderTransformOrigin="0.5, 1"
+                       Margin="0,0,0,40">
+                    <Rectangle.RenderTransform>
+                        <RotateTransform Angle="30"/>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Ellipse Width="12" Height="12" Fill="{Binding NeedleColor}"/>
+            </Grid>
+
+            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <TextBlock Text="{Binding Value}" Foreground="{Binding ValueTextColor}" 
+                       FontSize="{Binding FontSize}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Unit}" Foreground="{Binding LabelTextColor}" 
+                       FontSize="10" Opacity="0.6" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+    <!--#endregion-->
+</ResourceDictionary>

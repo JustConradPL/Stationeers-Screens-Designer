@@ -1,0 +1,256 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\views\\mainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\views\\mainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\viewmodels\\screenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\viewmodels\\screenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\persistance\\projectdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\persistance\\projectdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\models\\luatoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\models\\luatoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\models\\luacheckbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\models\\luacheckbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\models\\luaprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\models\\luaprogressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\models\\luaicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\models\\luaicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\models\\luauielementscollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\models\\luauielementscollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\themes\\displayluaelements.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\themes\\displayluaelements.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\models\\luaradiobutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\models\\luaradiobutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\models\\lualabel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\models\\lualabel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\models\\luagauge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\models\\luagauge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|c:\\users\\toste\\documents\\programowanie\\c#\\stationeersscreensdesigner\\stationeersscreensdesigner\\converters\\gaugearcconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7CB48C5-A431-BFBA-4DB8-4EBED12200B2}|StationeersScreensDesigner\\StationeersScreensDesigner.csproj|solutionrelative:stationeersscreensdesigner\\converters\\gaugearcconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ScreenViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\ViewModels\\ScreenViewModel.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\ViewModels\\ScreenViewModel.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\ViewModels\\ScreenViewModel.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\ViewModels\\ScreenViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T20:10:54.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProjectData.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Persistance\\ProjectData.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Persistance\\ProjectData.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Persistance\\ProjectData.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\Persistance\\ProjectData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T20:09:24.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LuaIcon.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaIcon.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Models\\LuaIcon.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaIcon.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\Models\\LuaIcon.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAD0AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T01:18:03.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LuaUIElementsCollection.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaUIElementsCollection.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Models\\LuaUIElementsCollection.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaUIElementsCollection.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\Models\\LuaUIElementsCollection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T17:53:10.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LuaProgressBar.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaProgressBar.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Models\\LuaProgressBar.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaProgressBar.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\Models\\LuaProgressBar.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAswF0AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T16:41:32.155Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LuaToggle.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaToggle.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Models\\LuaToggle.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaToggle.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\Models\\LuaToggle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T21:53:43.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainView.xaml",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Views\\MainView.xaml",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Views\\MainView.xaml",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Views\\MainView.xaml",
+              "RelativeToolTip": "StationeersScreensDesigner\\Views\\MainView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-10T23:22:12.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\ViewModels\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\ViewModels\\MainViewModel.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACsAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T17:02:57.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LuaCheckbox.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaCheckbox.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Models\\LuaCheckbox.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaCheckbox.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\Models\\LuaCheckbox.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAADwv1sAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T21:39:46.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DisplayLuaElements.xaml",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Themes\\DisplayLuaElements.xaml",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Themes\\DisplayLuaElements.xaml",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Themes\\DisplayLuaElements.xaml",
+              "RelativeToolTip": "StationeersScreensDesigner\\Themes\\DisplayLuaElements.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-10T23:14:24.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LuaRadioButton.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaRadioButton.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Models\\LuaRadioButton.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaRadioButton.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\Models\\LuaRadioButton.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAiwJQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T16:54:47.84Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LuaGauge.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaGauge.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Models\\LuaGauge.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaGauge.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\Models\\LuaGauge.cs",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAAAMQAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T23:19:28.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LuaLabel.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaLabel.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Models\\LuaLabel.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Models\\LuaLabel.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\Models\\LuaLabel.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAuwDUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T19:36:54.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GaugeArcConverter.cs",
+              "DocumentMoniker": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Converters\\GaugeArcConverter.cs",
+              "RelativeDocumentMoniker": "StationeersScreensDesigner\\Converters\\GaugeArcConverter.cs",
+              "ToolTip": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\Converters\\GaugeArcConverter.cs",
+              "RelativeToolTip": "StationeersScreensDesigner\\Converters\\GaugeArcConverter.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwB4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T23:24:49.895Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
