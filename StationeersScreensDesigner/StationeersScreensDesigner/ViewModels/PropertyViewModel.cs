@@ -35,7 +35,8 @@ namespace StationeersScreensDesigner.ViewModels
 
                     if (value is string strValue && _info.PropertyType != typeof(string))
                     {
-                        convertedValue = Convert.ChangeType(strValue, _info.PropertyType);
+                        (_,convertedValue) = EvaluateMath(strValue);
+                        convertedValue = Convert.ChangeType(convertedValue, _info.PropertyType);
                     }
 
                     foreach (var target in _targets)
@@ -51,7 +52,20 @@ namespace StationeersScreensDesigner.ViewModels
                 }
             }
         }
-
+        private (bool,double) EvaluateMath(string input)
+        {
+            try
+            {
+                var table = new System.Data.DataTable();
+                var result = table.Compute(input, string.Empty);
+                return (true,Convert.ToDouble(result));
+            }
+            catch
+            {
+                double.TryParse(input, out double val);
+                return (false,val);
+            }
+        }
         public PropertyViewModel(List<LuaUIElement> targets, PropertyInfo info, PropertyMetadataAttribute meta) : base(null)
         {
             _targets = targets;

@@ -32,3 +32,4 @@ C:\Users\toste\Documents\Programowanie\C#\StationeersScreensDesigner\Stationeers
 C:\Users\toste\Documents\Programowanie\C#\StationeersScreensDesigner\StationeersScreensDesigner\obj\Debug\net10.0-windows\Themes\DisplayLuaElements.baml
 C:\Users\toste\Documents\Programowanie\C#\StationeersScreensDesigner\StationeersScreensDesigner\obj\Debug\net10.0-windows\Themes\Styles.baml
 C:\Users\toste\Documents\Programowanie\C#\StationeersScreensDesigner\StationeersScreensDesigner\obj\Debug\net10.0-windows\Themes\PropertyEditor.baml
+C:\Users\toste\Documents\Programowanie\C#\StationeersScreensDesigner\StationeersScreensDesigner\bin\Debug\net10.0-windows\Riok.Mapperly.Abstractions.dll

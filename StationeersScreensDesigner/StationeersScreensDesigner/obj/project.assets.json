@@ -98,6 +98,22 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
         ]
+      },
+      "Riok.Mapperly/5.0.0-next.6": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Riok.Mapperly.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Riok.Mapperly.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/Riok.Mapperly.targets": {}
+        }
       }
     }
   },
@@ -225,6 +241,30 @@
         "microsoft.xaml.behaviors.wpf.nuspec",
         "tools/Install.ps1"
       ]
+    },
+    "Riok.Mapperly/5.0.0-next.6": {
+      "sha512": "DStcqiJ1osNIib+wrirWyms8FPshMXv1/ECHwdBAsupPsJyv7p1lT0vNSZhVmApwfJwOl0dPRr8XEgBoXYGUjg==",
+      "type": "package",
+      "path": "riok.mapperly/5.0.0-next.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "analyzers/roslyn4.11/dotnet/cs/Riok.Mapperly.Abstractions.dll",
+        "analyzers/roslyn4.11/dotnet/cs/Riok.Mapperly.dll",
+        "analyzers/roslyn4.14/dotnet/cs/Riok.Mapperly.Abstractions.dll",
+        "analyzers/roslyn4.14/dotnet/cs/Riok.Mapperly.dll",
+        "analyzers/roslyn4.8/dotnet/cs/Riok.Mapperly.Abstractions.dll",
+        "analyzers/roslyn4.8/dotnet/cs/Riok.Mapperly.dll",
+        "analyzers/roslyn5.0/dotnet/cs/Riok.Mapperly.Abstractions.dll",
+        "analyzers/roslyn5.0/dotnet/cs/Riok.Mapperly.dll",
+        "build/Riok.Mapperly.targets",
+        "lib/netstandard2.0/Riok.Mapperly.Abstractions.dll",
+        "lib/netstandard2.0/Riok.Mapperly.Abstractions.xml",
+        "logo.png",
+        "riok.mapperly.5.0.0-next.6.nupkg.sha512",
+        "riok.mapperly.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -235,7 +275,8 @@
       "CodeParagon.SourceGenerators.Attributes >= 1.0.1",
       "Microsoft.Extensions.DependencyInjection >= 11.0.0-preview.2.26159.112",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 11.0.0-preview.2.26159.112",
-      "Microsoft.Xaml.Behaviors.Wpf >= 1.1.135"
+      "Microsoft.Xaml.Behaviors.Wpf >= 1.1.135",
+      "Riok.Mapperly >= 5.0.0-next.6"
     ]
   },
   "packageFolders": {
@@ -320,6 +361,10 @@
           "Microsoft.Xaml.Behaviors.Wpf": {
             "target": "Package",
             "version": "[1.1.135, )"
+          },
+          "Riok.Mapperly": {
+            "target": "Package",
+            "version": "[5.0.0-next.6, )"
           }
         },
         "imports": [

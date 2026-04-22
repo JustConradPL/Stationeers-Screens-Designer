@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "aDIw79ukae8=",
+  "dgSpecHash": "k+s7A/QXj+Q=",
   "success": true,
   "projectFilePath": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,8 @@
     "C:\\Users\\toste\\.nuget\\packages\\codeparagon.sourcegenerators.attributes\\1.0.1\\codeparagon.sourcegenerators.attributes.1.0.1.nupkg.sha512",
     "C:\\Users\\toste\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\11.0.0-preview.2.26159.112\\microsoft.extensions.dependencyinjection.11.0.0-preview.2.26159.112.nupkg.sha512",
     "C:\\Users\\toste\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\11.0.0-preview.2.26159.112\\microsoft.extensions.dependencyinjection.abstractions.11.0.0-preview.2.26159.112.nupkg.sha512",
-    "C:\\Users\\toste\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.135\\microsoft.xaml.behaviors.wpf.1.1.135.nupkg.sha512"
+    "C:\\Users\\toste\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.135\\microsoft.xaml.behaviors.wpf.1.1.135.nupkg.sha512",
+    "C:\\Users\\toste\\.nuget\\packages\\riok.mapperly\\5.0.0-next.6\\riok.mapperly.5.0.0-next.6.nupkg.sha512"
   ],
   "logs": []
 }

@@ -17,6 +17,7 @@ using CodeParagon.Wpf.MVVM.Navigation;
 using StationeersScreensDesigner.Controls;
 using StationeersScreensDesigner.Helpers;
 using StationeersScreensDesigner.Models;
+using StationeersScreensDesigner.Persistance;
 
 namespace StationeersScreensDesigner.ViewModels
 {
@@ -35,8 +36,7 @@ namespace StationeersScreensDesigner.ViewModels
         public static extern bool GetCursorPos(out Win32Point lpPoint);
         #endregion
         public ObservableCollection<LuaUIElement> AvailableElements { get; init; }
-        public ObservableCollection<LuaUIElement> CanvasElements { get; } = new();
-
+        [ObservableProperty] private ScreenViewModel? _hoveredScreen;
         public ObservableCollection<ScreenViewModel> Screens { get; set; } = new();
         public MainViewModel(INavigationService navigation, IEnumerable<LuaUIElement> availableLuaElements) : base(navigation)
         {
@@ -63,8 +63,7 @@ namespace StationeersScreensDesigner.ViewModels
                 sb.AppendLine("-- STATIONEERS SCREEN SCRIPT --");
                 //sb.AppendLine($"-- Project: {ProjectName}");
                 sb.AppendLine();
-                sb.AppendLine("local ui = ss.ui.surface(\"main\")\r\nss.ui.activate(\"main\")\r\nlocal size = ui:size()\r\n" +
-                    "local W, H = size.w, size.h");
+
                 sb.AppendLine("""
                     local Event = {}
                     Event.__index = Event
@@ -87,21 +86,30 @@ namespace StationeersScreensDesigner.ViewModels
                     end
 
                     """);
-                if (CanvasElements.Any(element => element is LuaRadioButton))
+                var SuperCollection = Screens.SelectMany(
+                        parent => parent.CanvasElements,
+                        (parent, child) => new
+                        {
+                            Item = child,
+                            Source = parent
+                        }
+                        ).ToList();
+                if (SuperCollection.Any(element => element.Item is LuaRadioButton))
                 {
-                    var tables = CanvasElements
-                        .Where(elements => elements is LuaRadioButton e && e.GroupID > 0)
-                        .GroupBy(element => ((LuaRadioButton)element).GroupID)
+
+                    var tables = SuperCollection
+                        .Where(elements => elements.Item is LuaRadioButton e && e.GroupID > 0)
+                        .GroupBy(element => ((LuaRadioButton)element.Item).GroupID)
                         .Select(gp => gp.ToList())
                         .ToList();
 
                     foreach (var table in tables)
                     {
-                        sb.AppendLine($"local RadioButtonGroup{((LuaRadioButton)table[0]).GroupID} = {{}}");
+                        sb.AppendLine($"local RadioButtonGroup{((LuaRadioButton)table[0].Item).GroupID} = {{}}");
                     }
 
                     sb.AppendLine("""
-                        local function updateCheckedById(objectTable, targetId)
+                        local function updateCheckedById(objectTable, targetId,UI)
                             for i, entry in ipairs(objectTable) do
                                 -- Access the 'obj' and 'id' from the entry table
                                 local handler = entry.obj
@@ -113,20 +121,23 @@ namespace StationeersScreensDesigner.ViewModels
                                     handler:set_props({selected = false})
                                 end
                             end
-                            ui:commit()
+                            UI:commit()
                         end
                         """);
                 }
                 sb.AppendLine();
 
-                foreach (var element in CanvasElements.OrderBy((el) => el.ZIndex))
+
+
+                foreach (var currentScreen in SuperCollection.GroupBy((screen) => screen.Source))
                 {
-                    sb.AppendLine(element.ToLuaCode());
+                    sb.Append("--");
+                    sb.AppendLine($"   {currentScreen.Key.Name}   ".PadLeft((48 - currentScreen.Key.Name.Length) / 2 + currentScreen.Key.Name.Length, '=').PadRight(48, '='));
+                    sb.AppendLine(currentScreen.Key.GeneratedCode);
                 }
 
+
                 sb.AppendLine();
-                sb.AppendLine("-- Initialize and run the screen");
-                sb.AppendLine("ui:commit()");
 
                 return sb.ToString();
             }
@@ -135,14 +146,12 @@ namespace StationeersScreensDesigner.ViewModels
         {
             get
             {
-                var selected = CanvasElements.Where(x => x.IsSelected).ToList();
+                var selected = CurrentScreen.CanvasElements.Where(x => x.IsSelected).ToList();
                 if (!selected.Any()) return null;
 
                 Type firstType = selected[0].GetType();
-                // Strict subtype check: only show properties if ALL selected items are the same type
                 if (!selected.All(x => x.GetType() == firstType)) return null;
 
-                // 1. Reflect and create individual wrappers
                 var propertyWrappers = firstType.GetProperties()
                     .Select(p => new
                     {
@@ -150,9 +159,14 @@ namespace StationeersScreensDesigner.ViewModels
                         Meta = p.GetCustomAttribute<PropertyMetadataAttribute>()
                     })
                     .Where(x => x.Meta != null) // Only show properties with attribute
-                    .Select(x => new PropertyViewModel(selected, x.Prop, x.Meta));
+                    .Select(x =>
+                    {
+                        var p = new PropertyViewModel(selected, x.Prop, x.Meta);
+                        p.PropertyChanged += (s, e) => OnPropertyChanged(nameof(GeneratedLuaCode));
+                        return p;
+                    });
 
-                // Group by the GroupName defined in the Attribute
+
                 return propertyWrappers
                     .GroupBy(x => x.GroupName)
                     .Select(g => new PropertyGroupViewModel(g.Key, g.ToList()))
@@ -161,7 +175,7 @@ namespace StationeersScreensDesigner.ViewModels
         }
         private LuaUIElement? _draggedElement;
         private FollowerAdorner _follower;
-        
+
 
         private void EnableFollower(Window root)
         {
@@ -192,11 +206,32 @@ namespace StationeersScreensDesigner.ViewModels
         }
 
         [RelayCommand]
+        public void SaveProject()
+        {
+            FileOperator.SaveAs("MainProject", Screens.ToList());
+        }
+        [RelayCommand]
+        public void LoadProject()
+        {
+            Screens.Clear();
+            foreach (var screen in FileOperator.Load())
+            {
+                Screens.Add(screen);
+            }
+            CurrentScreen = Screens.FirstOrDefault();
+            OnPropertyChanged(nameof(GeneratedLuaCode));
+        }
+        [RelayCommand]
         public void AddScreen()
         {
-            var screen = new ScreenViewModel(_navigationService,$"Screen {Screens.Count + 1}");
+            var screen = new ScreenViewModel(_navigationService, $"Screen {Screens.Count + 1}");
+            screen.PropertyChanged += (sender, name) =>
+            {
+                OnPropertyChanged(nameof(GeneratedLuaCode));
+            };
             Screens.Add(screen);
             CurrentScreen = screen;
+
         }
 
         [RelayCommand]
@@ -211,7 +246,6 @@ namespace StationeersScreensDesigner.ViewModels
             if (sender is null || element is null) return;
 
             _draggedElement = element.Clone();
-
 
             EnableFollower(App.Current.MainWindow);
 
@@ -231,13 +265,16 @@ namespace StationeersScreensDesigner.ViewModels
             _draggedElement.X = mousePoint.X;
             _draggedElement.Y = mousePoint.Y;
 
-            _draggedElement.PropertyChanged += (s, e) =>
-            {
-                OnPropertyChanged(nameof(GeneratedLuaCode));
-                OnPropertyChanged(nameof(LineNumbers));
-            };
+            //_draggedElement.PropertyChanged += (s, e) =>
+            //{
+            //    OnPropertyChanged(nameof(GeneratedLuaCode));
+            //    OnPropertyChanged(nameof(LineNumbers));
+            //};
 
-            CanvasElements.Add(_draggedElement);
+            //CanvasElements.Add(_draggedElement);
+
+            _draggedElement.ID = $"VisualElement{CurrentScreen.CurrentVisualID}";
+            _currentScreen.AddElement(_draggedElement);
 
             DisableFollower(App.Current.MainWindow);
             _draggedElement = null;
@@ -248,7 +285,7 @@ namespace StationeersScreensDesigner.ViewModels
         [RelayCommand]
         private void DeselectElements()
         {
-            foreach (var item in CanvasElements)
+            foreach (var item in CurrentScreen.CanvasElements)
             {
                 item.IsSelected = false;
             }
@@ -256,15 +293,41 @@ namespace StationeersScreensDesigner.ViewModels
         }
 
         [RelayCommand]
+        public void ChangeScreenName()
+        {
+            if (HoveredScreen == null || HoveredScreen.IsEditing) return;
+            HoveredScreen.StartEdit();
+        }
+        [RelayCommand]
         public void DeleteSelected()
         {
-            var itemsToDelete = CanvasElements.Where(x => x.IsSelected).ToList();
+            var itemsToDelete = CurrentScreen.CanvasElements.Where(x => x.IsSelected).ToList();
 
-            foreach (var item in itemsToDelete)
+            if (itemsToDelete.Count == 0 && HoveredScreen != null && Screens.Count > 1)
             {
-                CanvasElements.Remove(item);
-            }
+                var hovered = HoveredScreen;
+                var result = MessageBox.Show(
+                $"Are you sure you want to delete screen '{HoveredScreen.Name}'?",
+                "Delete Screen",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
 
+                if (result == MessageBoxResult.Yes)
+                {
+                    if (CurrentScreen == hovered)
+                        CurrentScreen = Screens
+                            .Where(screen => !ReferenceEquals(screen, hovered))
+                            .FirstOrDefault();
+                    Screens.Remove(hovered);
+                }
+            }
+            else
+            {
+                foreach (var item in itemsToDelete)
+                {
+                    CurrentScreen.CanvasElements.Remove(item);
+                }
+            }
             OnPropertyChanged(nameof(ActiveProperties));
             OnPropertyChanged(nameof(GeneratedLuaCode));
             OnPropertyChanged(nameof(LineNumbers));

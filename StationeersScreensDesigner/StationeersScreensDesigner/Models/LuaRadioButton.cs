@@ -104,7 +104,7 @@ namespace StationeersScreensDesigner.Models
                 sb.AppendLine($@"style = {{check_color = ""{CheckColor}"", bg= ""{Background}"", font_size = {FontSize}, text = ""{TextColor}""}},");
                 sb.AppendLine($"""
                 on_click = function(playerName)
-                    updateCheckedById(RadioButtonGroup{GroupID},"{ID}")
+                    updateCheckedById(RadioButtonGroup{GroupID},"{ID}",ui)
                 end
                 """);
                 sb.AppendLine("})");
@@ -120,7 +120,7 @@ namespace StationeersScreensDesigner.Models
                 sb.AppendLine($@"style = {{check_color = ""{CheckColor}"", bg= ""{Background}"", font_size = {FontSize}, text = ""{TextColor}""}},");
                 sb.AppendLine($"""
                 on_click = function(playerName)
-                    updateCheckedById(RadioButtonGroup{GroupID},"{ID}")
+                    updateCheckedById(RadioButtonGroup{GroupID},"{ID}",ui_)
                 end
                 """);
                 sb.AppendLine("})");

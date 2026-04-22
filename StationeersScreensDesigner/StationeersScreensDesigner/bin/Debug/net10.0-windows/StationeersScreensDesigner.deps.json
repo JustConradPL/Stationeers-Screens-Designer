@@ -13,7 +13,8 @@
           "CodeParagon.SourceGenerators.Attributes": "1.0.1",
           "Microsoft.Extensions.DependencyInjection": "11.0.0-preview.2.26159.112",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "11.0.0-preview.2.26159.112",
-          "Microsoft.Xaml.Behaviors.Wpf": "1.1.135"
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.135",
+          "Riok.Mapperly": "5.0.0-next.6"
         },
         "runtime": {
           "StationeersScreensDesigner.dll": {}
@@ -76,6 +77,14 @@
             "fileVersion": "1.1.135.29210"
           }
         }
+      },
+      "Riok.Mapperly/5.0.0-next.6": {
+        "runtime": {
+          "lib/netstandard2.0/Riok.Mapperly.Abstractions.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
       }
     }
   },
@@ -126,6 +135,13 @@
       "sha512": "sha512-r8qBEXmQfORso2+MVHnt8PSH4761zJ0SIxgQTSEDVLU97EN2FZdG6/ZCYUPhQy+OrPKgnpYBCAs3PS6Bs7wRsg==",
       "path": "microsoft.xaml.behaviors.wpf/1.1.135",
       "hashPath": "microsoft.xaml.behaviors.wpf.1.1.135.nupkg.sha512"
+    },
+    "Riok.Mapperly/5.0.0-next.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DStcqiJ1osNIib+wrirWyms8FPshMXv1/ECHwdBAsupPsJyv7p1lT0vNSZhVmApwfJwOl0dPRr8XEgBoXYGUjg==",
+      "path": "riok.mapperly/5.0.0-next.6",
+      "hashPath": "riok.mapperly.5.0.0-next.6.nupkg.sha512"
     }
   }
 }

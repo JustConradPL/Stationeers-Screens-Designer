@@ -71,7 +71,7 @@ namespace StationeersScreensDesigner.Models
                 on_click = function(playerName)
                     {{ID}}_previousValue = not {{ID}}_previousValue
                     ui:get("{{ID}}"):set_props({value = {{ID}}_previousValue})
-                    {{ID}}_OnToggle:Fire({{ID}}_previousValue)
+                    {{ID}}_OnToggle:fire({{ID}}_previousValue)
                 end
                 """);
             sb.AppendLine("})");

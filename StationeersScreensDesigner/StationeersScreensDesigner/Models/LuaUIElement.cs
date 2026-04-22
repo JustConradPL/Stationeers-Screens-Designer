@@ -19,7 +19,14 @@ namespace StationeersScreensDesigner.Models
         } = name;
         [PropertyMetadata("ID")]
 
-        public string? ID { get; set; } = id;
+        public string? ID
+        {
+            get; set
+            {
+                field = value?.Replace(" ","_");
+                OnPropertyChanged();
+            }
+        } = id;
 
         public bool IsSelected
         {
@@ -38,7 +45,7 @@ namespace StationeersScreensDesigner.Models
                 OnPropertyChanged();
             }
         }
-        [PropertyMetadata("X","Position")]
+        [PropertyMetadata("X", "Position")]
         public double X
         {
             get; set
@@ -47,7 +54,7 @@ namespace StationeersScreensDesigner.Models
                 OnPropertyChanged();
             }
         }
-        [PropertyMetadata("Y","Position")]
+        [PropertyMetadata("Y", "Position")]
         public double Y
         {
             get; set
@@ -56,7 +63,7 @@ namespace StationeersScreensDesigner.Models
                 OnPropertyChanged();
             }
         }
-        [PropertyMetadata("Width","Size")]
+        [PropertyMetadata("Width", "Size")]
         public double Width
         {
             get; set
@@ -65,7 +72,7 @@ namespace StationeersScreensDesigner.Models
                 OnPropertyChanged();
             }
         }
-        [PropertyMetadata("Height","Size")]
+        [PropertyMetadata("Height", "Size")]
 
         public double Height
         {

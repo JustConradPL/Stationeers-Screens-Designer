@@ -14,6 +14,7 @@
             <TextBlock Text="{Binding Content}" FontSize="{Binding FontSize}" IsHitTestVisible="False"
                    TextAlignment="{Binding Align}" Width="{Binding Width}" Height="{Binding Height}"
                        Foreground="{Binding Color}"
+                       FontFamily="pack://application:,,,/Assets/Exo2.ttf#Exo 2"
                    />
         </Grid>
     </DataTemplate>
@@ -75,24 +76,38 @@
         </Grid>
     </DataTemplate>
     <DataTemplate DataType="{x:Type mod:LuaRadioButton}">
-        <Grid Background="Transparent" Width="{Binding Width}" Height="{Binding Height}">
+        <DataTemplate.Resources>
+            <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+        </DataTemplate.Resources>
+        <Grid Background="Transparent" 
+          Width="{Binding Width}" 
+          Height="{Binding Height}"
+          ClipToBounds="True">
             <i:Interaction.Behaviors>
                 <beh:DesignerItemBehavior />
             </i:Interaction.Behaviors>
+            <Grid VerticalAlignment="Center" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Viewbox Stretch="Uniform">
-                <Viewbox.Resources>
-                    <BooleanToVisibilityConverter x:Key="BoolToVis"/>
-                </Viewbox.Resources>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <Grid Margin="0,0,8,0">
-                        <Ellipse Width="18" Height="18" Stroke="{Binding TextColor}" StrokeThickness="1.5" Fill="{Binding Background}"/>
-                        <Ellipse x:Name="CheckDot" Width="10" Height="10" Fill="{Binding CheckColor}" 
-                             Visibility="{Binding IsChecked, Converter={StaticResource BoolToVis}}"/>
-                    </Grid>
-                    <TextBlock Text="{Binding Text}" Foreground="{Binding TextColor}" FontSize="{Binding FontSize}"/>
-                </StackPanel>
-            </Viewbox>
+                <Grid Margin="0,0,8,0" VerticalAlignment="Center">
+                    <Ellipse Width="18" Height="18" 
+                         Stroke="{Binding TextColor}" StrokeThickness="1.5" 
+                         Fill="{Binding Background}"/>
+                    <Ellipse x:Name="CheckDot" Width="10" Height="10" 
+                         Fill="{Binding CheckColor}" 
+                         Visibility="{Binding Checked, Converter={StaticResource BoolToVis}}"/>
+                </Grid>
+
+                <TextBlock Grid.Column="1" 
+                       Text="{Binding Text}" 
+                       Foreground="{Binding TextColor}" 
+                       FontSize="{Binding FontSize}"
+                       VerticalAlignment="Center"
+                       TextTrimming="CharacterEllipsis"/>
+            </Grid>
         </Grid>
     </DataTemplate>
     <DataTemplate DataType="{x:Type mod:LuaCheckbox}">
@@ -198,72 +213,76 @@
 
             <Grid.Resources>
                 <conv:ArcConverter x:Key="ArcConv"/>
+                <conv:HalfConverter x:Key="HalfConv"/>
             </Grid.Resources>
 
-            <Ellipse Fill="{Binding Background}" 
-                 Stroke="{Binding ArcBorderColor}" 
-                 StrokeThickness="1"
-                 Margin="2"/>
+            <Border Background="{Binding Background}" 
+                BorderBrush="{StaticResource SeparatorBrush}"
+                BorderThickness="1"
+                CornerRadius="4"/>
 
-            <Path Stroke="{Binding NormalColor}" StrokeThickness="{Binding ArcThickness}">
-                <Path.Data>
-                    <MultiBinding Converter="{StaticResource ArcConv}">
-                        <Binding Path="MinValue"/>
-                        <Binding Path="MaxValue"/>
-                        <Binding Path="MinValue"/>
-                        <Binding Path="Warn"/>
-                        <Binding Path="Width"/>
-                        <Binding Path="ArcThickness"/>
-                        <Binding Path="Invert"/>
-                    </MultiBinding>
-                </Path.Data>
-            </Path>
+            <Canvas IsHitTestVisible="False">
+                <Path Stroke="{Binding NormalColor}" StrokeThickness="{Binding ArcThickness}" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <MultiBinding Converter="{StaticResource ArcConv}">
+                            <Binding Source="0.0"/>
+                            <Binding Path="Warn"/>
+                            <Binding Path="Width"/>
+                            <Binding Path="Height"/>
+                            <Binding Path="ArcThickness"/>
+                        </MultiBinding>
+                    </Path.Data>
+                </Path>
 
-            <Path Stroke="{Binding WarnColor}" StrokeThickness="{Binding ArcThickness}">
-                <Path.Data>
-                    <MultiBinding Converter="{StaticResource ArcConv}">
-                        <Binding Path="MinValue"/>
-                        <Binding Path="MaxValue"/>
-                        <Binding Path="Warn"/>
-                        <Binding Path="Danger"/>
-                        <Binding Path="Width"/>
-                        <Binding Path="ArcThickness"/>
-                        <Binding Path="Invert"/>
-                    </MultiBinding>
-                </Path.Data>
-            </Path>
+                <Path Stroke="{Binding WarnColor}" StrokeThickness="{Binding ArcThickness}">
+                    <Path.Data>
+                        <MultiBinding Converter="{StaticResource ArcConv}">
+                            <Binding Path="Warn"/>
+                            <Binding Path="Danger"/>
+                            <Binding Path="Width"/>
+                            <Binding Path="Height"/>
+                            <Binding Path="ArcThickness"/>
+                        </MultiBinding>
+                    </Path.Data>
+                </Path>
 
-            <Path Stroke="{Binding DangerColor}" StrokeThickness="{Binding ArcThickness}">
-                <Path.Data>
-                    <MultiBinding Converter="{StaticResource ArcConv}">
-                        <Binding Path="MinValue"/>
-                        <Binding Path="MaxValue"/>
-                        <Binding Path="Danger"/>
-                        <Binding Path="MaxValue"/>
-                        <Binding Path="Width"/>
-                        <Binding Path="ArcThickness"/>
-                        <Binding Path="Invert"/>
-                    </MultiBinding>
-                </Path.Data>
-            </Path>
+                <Path Stroke="{Binding DangerColor}" StrokeThickness="{Binding ArcThickness}" StrokeEndLineCap="Round">
+                    <Path.Data>
+                        <MultiBinding Converter="{StaticResource ArcConv}">
+                            <Binding Path="Danger"/>
+                            <Binding Source="1.0"/>
+                            <Binding Path="Width"/>
+                            <Binding Path="Height"/>
+                            <Binding Path="ArcThickness"/>
+                        </MultiBinding>
+                    </Path.Data>
+                </Path>
+            </Canvas>
 
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Rectangle Width="4" Height="40" Fill="{Binding NeedleColor}" 
-                       RadiusX="2" RadiusY="2"
-                       RenderTransformOrigin="0.5, 1"
-                       Margin="0,0,0,40">
+            <Grid Height="{Binding Height, Converter={StaticResource HalfConv}}" 
+              VerticalAlignment="Top" 
+              Width="{Binding Width}">
+
+                <Rectangle Width="3" 
+                       Fill="{Binding NeedleColor}" 
+                       RadiusX="1.5" RadiusY="1.5"
+                       VerticalAlignment="Bottom"
+                       Height="40" 
+                       RenderTransformOrigin="0.5, 1">
                     <Rectangle.RenderTransform>
-                        <RotateTransform Angle="30"/>
+                        <RotateTransform Angle="{Binding NeedleAngle}"/>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Ellipse Width="12" Height="12" Fill="{Binding NeedleColor}"/>
             </Grid>
 
-            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <Ellipse Width="10" Height="10" Fill="{Binding NeedleColor}" 
+                 VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,8">
                 <TextBlock Text="{Binding Value}" Foreground="{Binding ValueTextColor}" 
                        FontSize="{Binding FontSize}" FontWeight="Bold" HorizontalAlignment="Center"/>
                 <TextBlock Text="{Binding Unit}" Foreground="{Binding LabelTextColor}" 
-                       FontSize="10" Opacity="0.6" HorizontalAlignment="Center"/>
+                       FontSize="9" Opacity="0.5" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
     </DataTemplate>

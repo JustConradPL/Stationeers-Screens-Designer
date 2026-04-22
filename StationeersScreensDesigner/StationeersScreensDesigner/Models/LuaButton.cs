@@ -65,7 +65,7 @@ namespace StationeersScreensDesigner.Models
 
             if (Name != string.Empty) sb.Append($"local {Name} = ");
             sb.AppendLine(@"ui:element({");
-            sb.AppendLine($"id = \"{ID}\", type = \"line\",");
+            sb.AppendLine($"id = \"{ID}\", type = \"button\",");
             sb.AppendLine($"rect = {{unit =\"px\", x = {X}, y ={Y},\n w = {Width}, h = {Height}}},");
             sb.AppendLine($"props = {{text = \"{Text}\"}},");
             sb.AppendLine($"style = {{ bg = \"{Background}\", text = \"{TextColor}\", font_size = {FontSize} }},");

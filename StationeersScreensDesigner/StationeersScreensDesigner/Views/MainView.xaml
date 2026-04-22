@@ -21,16 +21,60 @@
         >
     <Window.InputBindings>
         <KeyBinding Key="Delete" Command="{Binding DeleteSelectedCommand}"/>
+        <KeyBinding Key="F2" Command="{Binding ChangeScreenNameCommand}"/>
+        <KeyBinding Key="D" Modifiers="Ctrl" Command="{Binding CurrentScreen.DuplicateSelectedCommand}"/>
     </Window.InputBindings>
     <Window.Resources>
         <ResourceDictionary>
+
+            <Style x:Key="BrowserTabStyle" TargetType="ListBoxItem">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListBoxItem">
+                            <Border x:Name="TabBorder" 
+                                    Background="#1A1A1A" 
+                                    BorderBrush="{StaticResource SeparatorBrush}" 
+                                    BorderThickness="1,1,1,0" 
+                                    CornerRadius="5,5,0,0" 
+                                    Margin="2,0" 
+                                    Padding="15,5">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseEnter">
+                                        <i:ChangePropertyAction TargetObject="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                                PropertyName="HoveredScreen"
+                                                                Value="{Binding}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <i:ChangePropertyAction TargetObject="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                                PropertyName="HoveredScreen"
+                                                                Value="{x:Null}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="TabBorder" Property="Background" Value="#2A2A2A"/>
+                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="White"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="TabBorder" Property="Background" Value="#333"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
             <SolidColorBrush x:Key="blackish" Color="#1e1e24"/>
 
             <conv:SubtypeToStringConverter x:Key="SubtypeToString"/>
             <conv:NullToVisibilityConverter x:Key="NullToVisibility"/>
             <conv:MultiValueConverter x:Key="MultiBinding"/>
-
+            <conv:MouseWheelZoomConverter x:Key="MouseWheelZoom"/>
             <Border x:Key="MyFollowerVisual" 
                     Width="60" Height="60" 
                     Background="#804A90E2" 
@@ -116,6 +160,7 @@
                             BorderThickness="0"
                             Focusable="False"
                             Cursor="Hand"
+                                Command="{Binding SaveProjectCommand}"
                                 >
                             <Button.Background>
                                 <ImageBrush ImageSource="{StaticResource IconSaveDrawing}"/>
@@ -136,6 +181,7 @@
                             BorderThickness="0"
                             Focusable="False"
                             Cursor="Hand"
+                                Command="{Binding LoadProjectCommand}"
                                 >
                             <Button.Background>
                                 <ImageBrush ImageSource="{StaticResource IconSaveDrawing}"/>
@@ -270,12 +316,23 @@
                         <DropShadowEffect BlurRadius="3" Direction="300" Opacity="0.8"/>
                     </TextBlock.Effect>
                 </TextBlock>
-
+                
+                <TextBlock Grid.Row="0" 
+               Text="{Binding CurrentScreen.ZoomLevel, StringFormat='ZOOM LEVEL: {0:0%}'}"
+               Foreground="{StaticResource TextPrimary}"
+               Opacity="0.6"
+               FontFamily="Complex"
+                           HorizontalAlignment="Right">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="3" Direction="300" Opacity="0.8"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                
                 <Separator Grid.Row="1" Background="{StaticResource SeparatorBrush}"/>
 
                 <Grid Grid.Row="2">
-                    <Border Background="{StaticResource BlueprintGridThick}" Panel.ZIndex="2" IsHitTestVisible="False"/>
-                    <Border Background="{StaticResource BlueprintGridThin}" Panel.ZIndex="2" IsHitTestVisible="False"/>
+                    <!--<Border Background="{StaticResource BlueprintGridThick}" Panel.ZIndex="2" IsHitTestVisible="False"/>
+                    <Border Background="{StaticResource BlueprintGridThin}" Panel.ZIndex="2" IsHitTestVisible="False"/>-->
 
                     <ScrollViewer Panel.ZIndex="3"
                       HorizontalScrollBarVisibility="Auto"
@@ -284,19 +341,21 @@
                         <ScrollViewer.Resources>
                             <Style TargetType="ScrollBar" BasedOn="{StaticResource StationeersScrollBar}"/>
                         </ScrollViewer.Resources>
-
-                        <ItemsControl ItemsSource="{Binding CanvasElements}"
+                        <i:Interaction.Behaviors>
+                            <bh:DesignerScrollBehaviour ZoomCommand="{Binding CurrentScreen.ZoomCommand}"/>
+                        </i:Interaction.Behaviors>
+                        <ItemsControl ItemsSource="{Binding CurrentScreen.CanvasElements}"
                                       HorizontalAlignment="Left"
                                       VerticalAlignment="Top"
                                       Width="2000" Height="2000">
 
                             <ItemsControl.LayoutTransform>
-                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                <ScaleTransform ScaleX="{Binding CurrentScreen.ZoomLevel}" ScaleY="{Binding CurrentScreen.ZoomLevel}"/>
                             </ItemsControl.LayoutTransform>
 
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <Canvas AllowDrop="True" Background="Transparent">
+                                    <Canvas AllowDrop="True" Background="{StaticResource MasterBlueprintGrid}">
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="Drop">
                                                 <i:InvokeCommandAction Command="{Binding StopDragCommand}" 
@@ -468,10 +527,94 @@
         </Border>
 
         <!--Bottom Section-->
-        <Border Grid.Row="4"
-                Grid.ColumnSpan="100"
-                BorderBrush="{StaticResource SeparatorBrush}"
-                BorderThickness="1"/>
+        <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" 
+                Background="#111" 
+                BorderBrush="{StaticResource SeparatorBrush}" 
+                BorderThickness="0,1,0,0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+
+                <ListBox ItemsSource="{Binding Screens}" 
+                         SelectedItem="{Binding CurrentScreen}" 
+                         ItemContainerStyle="{StaticResource BrowserTabStyle}"
+                         Background="Transparent" 
+                         BorderThickness="0"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock Text="{Binding Name}" 
+                       Foreground="White" 
+                       FontSize="12" 
+                       VerticalAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsEditing}" Value="True">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
+                                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                         FontSize="12"
+                                         MinWidth="50"
+                                         Background="#444"
+                                         Foreground="White"
+                                         BorderThickness="1"
+                                         BorderBrush="#BA1BBB"
+                                        >
+                                    <TextBox.Style>
+                                        <Style TargetType="TextBox">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsEditing}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBox.Style>
+
+                                    <i:Interaction.Behaviors>
+                                        <bh:TextBoxRenameBehavior CommitCommand="{Binding CommitEditCommand}" 
+                                              CancelCommand="{Binding CancelEditCommand}"/>
+                                    </i:Interaction.Behaviors>
+                                </TextBox>
+                            </Grid>
+                        </DataTemplate>
+
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <Button Command="{Binding AddScreenCommand}" 
+                        Background="Transparent" 
+                        BorderThickness="0" 
+                        Foreground="White" 
+                        Content="+" 
+                        FontSize="18" 
+                        Width="30" Height="30" 
+                        Margin="5,0,0,5" 
+                        Cursor="Hand"
+                        VerticalAlignment="Bottom">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="#BA1BBB"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Border>
         <!--Accent-->
         <Grid Grid.ColumnSpan="1000"
               Grid.RowSpan="1000"

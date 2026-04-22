@@ -204,7 +204,7 @@ namespace StationeersScreensDesigner.Models
         danger = {Danger},
         label = ""{Label}"",
         unit = "" {Unit}"",
-        invert = {Invert},
+        invert = ""{Invert}"",
     }},
     style = {{
         bg = ""{Background}"",
