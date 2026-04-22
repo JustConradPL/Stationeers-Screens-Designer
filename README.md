@@ -10,7 +10,6 @@ A dedicated design tool to simplify and accelerate the creation of custom UIs fo
 * **No Autosave:** This software does not currently feature an autosave system. **Please save your work frequently.**
 * **Compatibility:** This software is provided "as-is" without any guarantees. As this is an external tool, there is no guarantee that generated UIs will be compatible with future updates to the *ScriptedScreens Mod* or *Stationeers* itself.
 * **Major Changes:** The software and its file formats are subject to significant changes in future updates.
-
 ---
 
 ## ⌨️ Shortcuts
@@ -28,7 +27,8 @@ Master the interface with these keyboard shortcuts:
 | **Horizontal Scroll** | `Ctrl + Shift` |
 | **Vertical Scroll** | `Scroll` |
 
-> **Note:** The Lua Code viewer supports standard editing shortcuts like `Ctrl + C` (Copy) and `Ctrl + A` (Select All).
+> **Note:** The Lua Code viewer supports standard editing shortcuts like `Ctrl + C` (Copy) and `Ctrl + A` (Select All). Additionally remember to press enter or click other property to *save* the results
+
 
 ---
 
