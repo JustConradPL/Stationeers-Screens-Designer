@@ -1,0 +1,40 @@
+{
+  "ProjectName": "MainProject",
+  "Screens": [
+    {
+      "Name": "Main",
+      "Elements": [
+        {
+          "$type": "gauge",
+          "Value": 0.5,
+          "MinValue": 0,
+          "MaxValue": 1,
+          "Warn": 0.4,
+          "Danger": 0.8,
+          "Invert": false,
+          "Label": "Value",
+          "Unit": "%",
+          "Background": "#FFFFFF",
+          "ArcBorderColor": "#000000",
+          "NeedleColor": "#960d06",
+          "NormalColor": "#9af21f",
+          "WarnColor": "#f2e01f",
+          "DangerColor": "#f2771f",
+          "ValueTextColor": "#000000",
+          "LabelTextColor": "#000000",
+          "ArcThickness": 10,
+          "FontSize": 12,
+          "Name": "",
+          "ID": "VisualElement1",
+          "X": 0,
+          "Y": 0,
+          "Width": 50,
+          "Height": 50,
+          "ZIndex": 0
+        }
+      ],
+      "TargetWidth": 100,
+      "TargetHeight": 100
+    }
+  ]
+}

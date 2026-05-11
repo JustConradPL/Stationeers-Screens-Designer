@@ -1,0 +1,7 @@
+C:\MyOutputFolder\Dependent\StationeersScreensDesigner.pdb
+C:\MyOutputFolder\Dependent\D3DCompiler_47_cor3.dll
+C:\MyOutputFolder\Dependent\PenImc_cor3.dll
+C:\MyOutputFolder\Dependent\PresentationNative_cor3.dll
+C:\MyOutputFolder\Dependent\vcruntime140_cor3.dll
+C:\MyOutputFolder\Dependent\wpfgfx_cor3.dll
+C:\MyOutputFolder\Dependent\StationeersScreensDesigner.exe

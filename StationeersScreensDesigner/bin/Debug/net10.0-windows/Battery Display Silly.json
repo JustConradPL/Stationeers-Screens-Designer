@@ -1,0 +1,132 @@
+{
+  "ProjectName": "MainProject",
+  "Screens": [
+    {
+      "Name": "Screen 1",
+      "Elements": [
+        {
+          "$type": "panel",
+          "Background": "#8ba0a4",
+          "Name": "",
+          "ID": "VisualElement1",
+          "X": -3.466666666666697,
+          "Y": 0.533333333333303,
+          "Width": 470,
+          "Height": 470,
+          "ZIndex": 0
+        },
+        {
+          "$type": "panel",
+          "Background": "#1b4552",
+          "Name": "",
+          "ID": "VisualElement3",
+          "X": 160,
+          "Y": 200,
+          "Width": 110,
+          "Height": 70,
+          "ZIndex": 0
+        },
+        {
+          "$type": "panel",
+          "Background": "#e12729",
+          "Name": "RedInd",
+          "ID": "VisualElement5",
+          "X": 164.00000000000006,
+          "Y": 205,
+          "Width": 30,
+          "Height": 60,
+          "ZIndex": 2
+        },
+        {
+          "$type": "panel",
+          "Background": "#f8cc1b",
+          "Name": "YellowInd",
+          "ID": "VisualElement7",
+          "X": 200,
+          "Y": 205,
+          "Width": 30,
+          "Height": 60,
+          "ZIndex": 2
+        },
+        {
+          "$type": "panel",
+          "Background": "#72b043",
+          "Name": "GreenInd",
+          "ID": "VisualElement9",
+          "X": 235,
+          "Y": 205,
+          "Width": 30,
+          "Height": 60,
+          "ZIndex": 2
+        },
+        {
+          "$type": "panel",
+          "Background": "#183e4b",
+          "Name": "",
+          "ID": "VisualElement11",
+          "X": 260,
+          "Y": 220,
+          "Width": 30,
+          "Height": 30,
+          "ZIndex": 0
+        },
+        {
+          "$type": "label",
+          "Content": "Battery Display",
+          "FontSize": 24,
+          "Color": "#FFFFFF",
+          "Align": "center",
+          "Name": "",
+          "ID": "VisualElement13",
+          "X": 0,
+          "Y": 0,
+          "Width": 470,
+          "Height": 50,
+          "ZIndex": 3
+        },
+        {
+          "$type": "label",
+          "Content": "Current Power",
+          "FontSize": 16,
+          "Color": "#FFFFFF",
+          "Align": "center",
+          "Name": "",
+          "ID": "VisualElement15",
+          "X": 150,
+          "Y": 150,
+          "Width": 140,
+          "Height": 20,
+          "ZIndex": 3
+        },
+        {
+          "$type": "label",
+          "Content": "Placeholder",
+          "FontSize": 14,
+          "Color": "#FFFFFF",
+          "Align": "center",
+          "Name": "PctLabel",
+          "ID": "VisualElement17",
+          "X": 170,
+          "Y": 170,
+          "Width": 100,
+          "Height": 20,
+          "ZIndex": 3
+        },
+        {
+          "$type": "label",
+          "Content": "Placeholder",
+          "FontSize": 16,
+          "Color": "#FFFFFF",
+          "Align": "left",
+          "Name": "TotalPowerLabel",
+          "ID": "VisualElement19",
+          "X": 170,
+          "Y": 320,
+          "Width": 100,
+          "Height": 20,
+          "ZIndex": 3
+        }
+      ]
+    }
+  ]
+}
