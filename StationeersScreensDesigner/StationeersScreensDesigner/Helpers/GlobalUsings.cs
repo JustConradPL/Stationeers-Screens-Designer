@@ -1,1 +1,0 @@
-﻿global using static StationeersScreensDesigner.Helpers.NavigationHelper;

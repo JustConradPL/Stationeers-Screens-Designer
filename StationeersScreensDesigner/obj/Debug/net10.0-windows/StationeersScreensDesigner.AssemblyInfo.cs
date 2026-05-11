@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StationeersScreensDesigner")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad250737f01f9f801e04b31252dd71de419ae9a8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb06147bba3965bb16e7621a471358d47afd77bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("StationeersScreensDesigner")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StationeersScreensDesigner")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

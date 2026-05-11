@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/g36lWaK9Og=",
+  "dgSpecHash": "GlRwwhHcjN4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj",
+  "projectFilePath": "C:\\Users\\toste\\Documents\\GitHub\\Stationeers-Screens-Designer\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\toste\\.nuget\\packages\\codeparagon\\1.2.8\\codeparagon.1.2.8.nupkg.sha512",
     "C:\\Users\\toste\\.nuget\\packages\\codeparagon.behaviors\\1.0.3\\codeparagon.behaviors.1.0.3.nupkg.sha512",

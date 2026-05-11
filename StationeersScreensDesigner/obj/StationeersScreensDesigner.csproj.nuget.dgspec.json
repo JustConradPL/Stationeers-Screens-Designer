@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj": {}
+    "C:\\Users\\toste\\Documents\\GitHub\\Stationeers-Screens-Designer\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj": {
+    "C:\\Users\\toste\\Documents\\GitHub\\Stationeers-Screens-Designer\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj",
+        "projectUniqueName": "C:\\Users\\toste\\Documents\\GitHub\\Stationeers-Screens-Designer\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj",
         "projectName": "StationeersScreensDesigner",
-        "projectPath": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj",
+        "projectPath": "C:\\Users\\toste\\Documents\\GitHub\\Stationeers-Screens-Designer\\StationeersScreensDesigner\\StationeersScreensDesigner.csproj",
         "packagesPath": "C:\\Users\\toste\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\toste\\Documents\\Programowanie\\C#\\StationeersScreensDesigner\\StationeersScreensDesigner\\obj\\",
+        "outputPath": "C:\\Users\\toste\\Documents\\GitHub\\Stationeers-Screens-Designer\\StationeersScreensDesigner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
